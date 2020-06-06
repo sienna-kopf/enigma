@@ -12,6 +12,13 @@ class ShiftsTest < Minitest::Test
   end
 
   def test_it_exists
-    assert_instance_of Shifts, @shift 
+    assert_instance_of Shifts, @shift
+  end
+
+  def test_it_has_A_B_C_D_shifts
+    assert_equal 3, @shift.a_shift
+    assert_equal 27, @shift.b_shift
+    assert_equal 73, @shift.c_shift 
+    assert_equal 20, @shift.d_shift
   end
 end
