@@ -16,4 +16,9 @@ class ShiftsTest < Minitest::Test
     assert_equal 73, @shift.c_shift
     assert_equal 20, @shift.d_shift
   end
+
+  def test_it_can_generate_a_random_number
+    @shift.stubs(:random_5_digit_number).returns("01923")
+    assert_equal "01923", @shift.random_5_digit_number
+  end
 end
