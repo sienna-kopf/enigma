@@ -84,4 +84,19 @@ class ShiftsTest < Minitest::Test
     assert_equal 4, @shift.offsets["A offset"]
     assert_equal 4, @shift.offsets.count
   end
+
+  def test_it_can_assign_shifts
+    Date.stubs(:today).returns(Date.new(2020, 06, 06))
+    @shift.stubs(:random_number).returns(00234)
+
+    expected = {
+      "A shift" => 4,
+      "B shift" => 6,
+      "C shift" => 23,
+      "D shift" => 34
+    }
+    assert_equal expected, @shift.shifts
+    assert_equal 23, @shift.shifts["C shift"]
+    assert_equal 4, @shift.shifts.count
+  end
 end
