@@ -26,4 +26,11 @@ class ShiftsTest < Minitest::Test
     @shift.stubs(:random_number).returns(25)
     assert_equal "00025", @shift.padded_random_number
   end
+
+  def test_it_can_create_an_array_out_of_padded_random_number
+    @shift.stubs(:random_number).returns(12345)
+
+    assert_equal ["1", "2", "3", "4", "5"], @shift.random_number_array
+    assert_equal 5, @shift.random_number_array.count
+  end
 end
