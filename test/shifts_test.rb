@@ -55,9 +55,9 @@ class ShiftsTest < Minitest::Test
       "C key" => 34,
       "D key" => 45
       }
-    assert_equal expected, @shift.key_pairs
-    assert_equal 12, @shift.key_pairs["A key"]
-    assert_equal 4, @shift.key_pairs.count
+    assert_equal expected, @shift.keys
+    assert_equal 12, @shift.keys["A key"]
+    assert_equal 4, @shift.keys.count
   end
 
   def test_it_can_return_todays_date_in_appropriate_format
@@ -87,7 +87,7 @@ class ShiftsTest < Minitest::Test
 
   def test_it_can_assign_shifts
     Date.stubs(:today).returns(Date.new(2020, 06, 06))
-    @shift.stubs(:random_number).returns(00234)
+    @shift.stubs(:random_number).returns(234)
 
     expected = {
       "A shift" => 4,
