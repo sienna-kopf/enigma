@@ -5,6 +5,7 @@ require './lib/shifts'
 class EncryptionTest < Minitest::Test
   def setup
     @encryption = Encryption.new
+    @shifts = Shifts.new
   end
 
   def test_it_exists
@@ -17,5 +18,12 @@ class EncryptionTest < Minitest::Test
     assert_equal expected, @encryption.character_set
     assert_equal 27, @encryption.character_set.count
     assert_equal "a", @encryption.character_set[0]
+  end
+
+  def test_it_can_encrypt_a_message
+    @shifts.stubs(:random_number).returns(2715)
+    Date.stubs(:today).returns(Date.new(1995, 8, 04))
+
+    assert_equal "keder ohulw", @encryption.encrypt_message("hello world")
   end
 end
