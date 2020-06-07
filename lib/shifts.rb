@@ -29,7 +29,7 @@ class Shifts
     end
 
     def keys
-      key_pairs = {
+      {
         "A key" => key_pairs_array[0].join.to_i,
         "B key" => key_pairs_array[1].join.to_i,
         "C key" => key_pairs_array[2].join.to_i,
@@ -47,7 +47,7 @@ class Shifts
 
     def offsets
       square_date_array = square_date.to_s.split(//).to_a
-      offsets = {
+      {
         "A offset" => square_date_array[-4].to_i,
         "B offset" => square_date_array[-3].to_i,
         "C offset" => square_date_array[-2].to_i,
@@ -56,7 +56,7 @@ class Shifts
     end
 
     def shifts
-      expected = {
+      {
         "A shift" => offsets["A offset"] + keys["A key"].to_i,
         "B shift" => offsets["B offset"] + keys["B key"].to_i,
         "C shift" => offsets["C offset"] + keys["C key"].to_i,
