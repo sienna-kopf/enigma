@@ -33,4 +33,17 @@ class ShiftsTest < Minitest::Test
     assert_equal ["1", "2", "3", "4", "5"], @shift.random_number_array
     assert_equal 5, @shift.random_number_array.count
   end
+
+  def test_it_can_create_key_pairs_array
+    @shift.stubs(:random_number).returns(12345)
+    expected = [
+      ["1", "2"],
+      ["2", "3"],
+      ["3", "4"],
+      ["4", "5"]]
+
+    assert_equal expected, @shift.key_pairs_array
+    assert_equal ["1", "2"], @shift.key_pairs_array[0]
+    assert_equal 4, @shift.key_pairs_array.count
+  end
 end
