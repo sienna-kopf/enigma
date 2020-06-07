@@ -35,8 +35,8 @@ class Shifts
       pairs_array
     end
 
-    def key_pairs
-      @keys = {
+    def keys
+      key_pairs = {
         "A key" => key_pairs_array[0].join.to_i,
         "B key" => key_pairs_array[1].join.to_i,
         "C key" => key_pairs_array[2].join.to_i,
@@ -63,5 +63,11 @@ class Shifts
     end
 
     def shifts
+      expected = {
+        "A shift" => offsets["A offset"] + keys["A key"].to_i,
+        "B shift" => offsets["B offset"] + keys["B key"].to_i,
+        "C shift" => offsets["C offset"] + keys["C key"].to_i,
+        "D shift" => offsets["D offset"] + keys["D key"].to_i
+      }
     end
 end
