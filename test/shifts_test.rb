@@ -65,4 +65,10 @@ class ShiftsTest < Minitest::Test
 
     assert_equal "060620", @shift.todays_date
   end
+
+  def test_it_can_square_given_date
+    Date.stubs(:today).returns(Date.new(2020, 06, 06))
+
+    assert_equal 3674784400, @shift.square_date 
+  end
 end
