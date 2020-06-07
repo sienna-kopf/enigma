@@ -30,4 +30,13 @@ class Shifts
       end
       pairs_array
     end
+
+    def key_pairs
+      keys_hash = {
+        "A key" => key_pairs_array[0].join.to_i,
+        "B key" => key_pairs_array[1].join.to_i,
+        "C key" => key_pairs_array[2].join.to_i,
+        "D key" => key_pairs_array[3].join.to_i
+        }
+    end
 end
