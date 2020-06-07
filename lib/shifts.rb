@@ -1,10 +1,12 @@
+require 'date'
+
 class Shifts
   attr_reader :a_shift,
                 :b_shift,
                 :c_shift,
                 :d_shift,
                 :keys
-
+                
     def initialize(shifts)
       @a_shift = shifts["A"]
       @b_shift = shifts["B"]
