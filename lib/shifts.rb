@@ -41,4 +41,8 @@ class Shifts
         "D key" => key_pairs_array[3].join.to_i
         }
     end
+
+    def todays_date
+      Date.today.strftime("%d%m%y")
+    end
 end
