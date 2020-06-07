@@ -1,18 +1,11 @@
 require 'date'
 
 class Shifts
-  attr_reader :a_shift,
-                :b_shift,
-                :c_shift,
-                :d_shift,
-                :keys
 
-    def initialize(shifts)
-      @a_shift = shifts["A"]
-      @b_shift = shifts["B"]
-      @c_shift = shifts["C"]
-      @d_shift = shifts["D"]
+    def initialize
+      @shifts = shifts
       @keys = keys
+      @offsets = offsets
     end
 
     def random_number
@@ -54,7 +47,7 @@ class Shifts
 
     def offsets
       square_date_array = square_date.to_s.split(//).to_a
-      @offsets = {
+      offsets = {
         "A offset" => square_date_array[-4].to_i,
         "B offset" => square_date_array[-3].to_i,
         "C offset" => square_date_array[-2].to_i,
