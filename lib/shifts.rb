@@ -6,7 +6,7 @@ class Shifts
                 :c_shift,
                 :d_shift,
                 :keys
-                
+
     def initialize(shifts)
       @a_shift = shifts["A"]
       @b_shift = shifts["B"]
@@ -46,5 +46,10 @@ class Shifts
 
     def todays_date
       Date.today.strftime("%d%m%y")
+    end
+
+    def square_date
+      date_without_leading_zeros = todays_date.gsub(/^[0:]*/,"")
+      date_without_leading_zeros.to_i * date_without_leading_zeros.to_i
     end
 end
