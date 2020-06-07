@@ -2,13 +2,15 @@ class Shifts
   attr_reader :a_shift,
                 :b_shift,
                 :c_shift,
-                :d_shift
+                :d_shift,
+                :keys
 
     def initialize(shifts)
       @a_shift = shifts["A"]
       @b_shift = shifts["B"]
       @c_shift = shifts["C"]
       @d_shift = shifts["D"]
+      @keys = keys
     end
 
     def random_number
@@ -32,7 +34,7 @@ class Shifts
     end
 
     def key_pairs
-      keys_hash = {
+      @keys = {
         "A key" => key_pairs_array[0].join.to_i,
         "B key" => key_pairs_array[1].join.to_i,
         "C key" => key_pairs_array[2].join.to_i,
