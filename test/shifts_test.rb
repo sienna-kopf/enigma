@@ -23,9 +23,7 @@ class ShiftsTest < Minitest::Test
   end
 
   def test_it_can_pad_random_number_with_leading_zeros
-    skip
-    # random_number_mock = mock("random_number")
     @shift.stubs(:random_number).returns(25)
-    assert_equal 00025, @shift.padded_random_number
+    assert_equal "00025", @shift.padded_random_number
   end
 end
