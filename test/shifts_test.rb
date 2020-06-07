@@ -61,7 +61,7 @@ class ShiftsTest < Minitest::Test
   end
 
   def test_it_can_return_todays_date_in_appropriate_format
-    Date.stubs(:today).returns(Date.new(2020, 06, 04))
+    Date.stubs(:today).returns(Date.new(2020, 06, 06))
 
     assert_equal "060620", @shift.todays_date
   end
