@@ -52,4 +52,16 @@ class Shifts
       date_without_leading_zeros = todays_date.gsub(/^[0:]*/,"")
       date_without_leading_zeros.to_i * date_without_leading_zeros.to_i
     end
+
+
+
+    def offsets
+      square_date_array = square_date.to_s.split(//).to_a
+      @offsets = {
+        "A offset" => square_date_array[-4].to_i,
+        "B offset" => square_date_array[-3].to_i,
+        "C offset" => square_date_array[-2].to_i,
+        "D offset" => square_date_array[-1].to_i
+        }
+    end
 end
