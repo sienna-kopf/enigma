@@ -20,6 +20,14 @@ class Shifts
     end
 
     def random_number_array
-      padded_random_number.split(//).to_a 
+      padded_random_number.split(//).to_a
+    end
+
+    def key_pairs_array
+      pairs_array = []
+      random_number_array.each_cons(2) do |set|
+        pairs_array << set
+      end
+      pairs_array
     end
 end
