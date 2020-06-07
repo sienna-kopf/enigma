@@ -17,5 +17,9 @@ class Shifts
 
     def padded_random_number
       sprintf("%05d", random_number)
-    end 
+    end
+
+    def random_number_array
+      padded_random_number.split(//).to_a 
+    end
 end
