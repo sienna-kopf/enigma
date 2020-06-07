@@ -57,6 +57,12 @@ class ShiftsTest < Minitest::Test
       }
     assert_equal expected, @shift.key_pairs
     assert_equal 12, @shift.key_pairs["A key"]
-    assert_equal 4, @shift.key_pairs.count 
+    assert_equal 4, @shift.key_pairs.count
+  end
+
+  def test_it_can_return_todays_date_in_appropriate_format
+    Date.stubs(:today).returns(Date.new(2020, 06, 04))
+
+    assert_equal "060620", @shift.todays_date
   end
 end
