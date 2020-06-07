@@ -10,4 +10,8 @@ class Shifts
       @c_shift = shifts["C"]
       @d_shift = shifts["D"]
     end
+
+    def random_number
+      rand(99999)
+    end
 end
