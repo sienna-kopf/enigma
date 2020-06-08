@@ -4,4 +4,14 @@ class Decryption
   def initialize
     @character_set = ("a".."z").to_a << " "
   end
+
+  def indexed_alphabet
+    index_to_letter = @character_set.group_by do |letter|
+      @character_set.index(letter)
+    end
+
+    index_to_letter.transform_values! do |value|
+      value.join
+    end
+  end
 end
