@@ -3,6 +3,7 @@ require_relative './decryption'
 require_relative './shifts'
 
 class Enigma
+  attr_reader :shifts
 
   def initialize
     @encryption = Encryption.new
@@ -10,7 +11,7 @@ class Enigma
     @shifts = Shifts.new
   end
 
-  def encrypt(message, key, date)
+  def encrypt(message, key = @shifts.padded_random_number, date = @shifts.todays_date)
     {
       :encryption => @encryption.encrypt_message(message, @shifts.shifts(key, date)),
       :key => key,
@@ -18,7 +19,7 @@ class Enigma
     }
   end
 
-  def decrypt(message, key, date)
+  def decrypt(message, key = @shifts.padded_random_number, date = @shifts.todays_date)
     {
       :decryption => @decryption.decrypt_message(message, @shifts.shifts(key, date)),
       :key => key,
