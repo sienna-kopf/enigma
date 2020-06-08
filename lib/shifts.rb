@@ -12,8 +12,8 @@ class Shifts
       rand(99999)
     end
 
-    def padded_random_number
-      sprintf("%05d", random_number)
+    def padded_random_number(number = random_number)
+      sprintf("%05d", number)
     end
 
     def random_number_array
