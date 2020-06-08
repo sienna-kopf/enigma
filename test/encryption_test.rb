@@ -35,6 +35,7 @@ class EncryptionTest < Minitest::Test
     Date.stubs(:today).returns(Date.new(1995, 8, 04))
 
     assert_equal "keder ohulw", @encryption.encrypt_message("hello world", @shifts.shifts.values)
+    assert_equal "02715", @shifts.padded_random_number
   end
 
   def test_it_can_encrypt_a_message_that_contains_characters_outside_of_character_set
