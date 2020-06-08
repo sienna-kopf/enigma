@@ -2,12 +2,6 @@ require 'date'
 
 class Shifts
 
-    def initialize
-      # @shifts = shifts
-      @keys = keys
-      @offsets = offsets
-    end
-
     def random_number
       rand(99999)
     end
