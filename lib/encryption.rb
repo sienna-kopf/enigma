@@ -20,7 +20,7 @@ class Encryption
     indexed_alphabet.invert
   end
 
-  def encrypt_message(message, shifts)  ## zip method  Hash[collection.zip(collection)] returns hash assignment
+  def encrypt_message(message, shifts)
     encrypted_message = ""
 
     message.downcase.each_char.with_index do |letter, i|
