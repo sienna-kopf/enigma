@@ -3,7 +3,6 @@ class Encryption
 
   def initialize
     @character_set = ("a".."z").to_a << " "
-    @shift = Shifts.new
   end
 
   def indexed_alphabet
