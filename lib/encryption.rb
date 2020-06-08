@@ -22,14 +22,18 @@ class Encryption
   def encrypt_message(message, shifts)
     encrypted_message = ""
 
-    message.downcase.each_char.with_index do |letter, i|
-      key = shifts[i % shifts.length]
-      alphabet_index = alphabet_to_index[letter]
+    message.downcase.each_char.with_index do |character, i|
+      if @character_set.include?(character)
+        key = shifts[i % shifts.length]
+        alphabet_index = alphabet_to_index[character]
 
-      if (alphabet_index + key) < 27
-        encrypted_message << indexed_alphabet[alphabet_index + key]
+        if (alphabet_index + key) < 27
+          encrypted_message << indexed_alphabet[alphabet_index + key]
+        else
+          encrypted_message << indexed_alphabet[(alphabet_index + key) % 27]
+        end
       else
-        encrypted_message << indexed_alphabet[(alphabet_index + key) % 27]
+        encrypted_message << character
       end
     end
     encrypted_message
