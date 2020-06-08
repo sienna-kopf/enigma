@@ -20,9 +20,8 @@ class Encryption
     indexed_alphabet.invert
   end
 
-  def encrypt_message(message, keys = @shift.keys , offsets = @shift.offsets)  ## zip method  Hash[collection.zip(collection)] returns hash assignment
+  def encrypt_message(message, shifts)  ## zip method  Hash[collection.zip(collection)] returns hash assignment
     encrypted_message = ""
-    shifts = [3, 27, 73, 20]
 
     message.downcase.each_char.with_index do |letter, i|
       key = shifts[i % shifts.length]
@@ -35,6 +34,6 @@ class Encryption
       end
       encrypted_message
     end
-    require "pry"; binding.pry
+    encrypted_message
   end
 end
