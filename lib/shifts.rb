@@ -42,14 +42,9 @@ class Shifts
       date.to_i * date.to_i
     end
 
-    def offsets
-      square_date_array = square_date.to_s.split(//).to_a
-      {
-        "A offset" => square_date_array[-4].to_i,
-        "B offset" => square_date_array[-3].to_i,
-        "C offset" => square_date_array[-2].to_i,
-        "D offset" => square_date_array[-1].to_i
-        }
+    def offsets(date = todays_date)
+      square_date_array = square_date(date).to_s.split(//).to_a[-4..-1]
+      square_date_array.map {|element| element.to_i}
     end
 
     def shifts
