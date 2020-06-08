@@ -38,8 +38,8 @@ class Shifts
       Date.today.strftime("%d%m%y")
     end
 
-    def square_date
-      todays_date.to_i * todays_date.to_i
+    def square_date(date = todays_date)
+      date.to_i * date.to_i
     end
 
     def offsets
