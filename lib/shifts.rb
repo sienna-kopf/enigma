@@ -3,7 +3,7 @@ require 'date'
 class Shifts
 
     def initialize
-      @shifts = shifts
+      # @shifts = shifts
       @keys = keys
       @offsets = offsets
     end
@@ -28,13 +28,10 @@ class Shifts
       pairs_array
     end
 
-    def keys
-      {
-        "A key" => key_pairs_array[0].join.to_i,
-        "B key" => key_pairs_array[1].join.to_i,
-        "C key" => key_pairs_array[2].join.to_i,
-        "D key" => key_pairs_array[3].join.to_i
-        }
+    def keys(number = random_number)
+      key_pairs_array(number).flat_map do |pair|
+        pair.join.to_i
+      end
     end
 
     def todays_date
