@@ -14,4 +14,8 @@ class Decryption
       value.join
     end
   end
+
+  def alphabet_to_index
+    indexed_alphabet.invert
+  end
 end
