@@ -47,12 +47,10 @@ class Shifts
       square_date_array.map {|element| element.to_i}
     end
 
-    def shifts
-      {
-        "A shift" => offsets["A offset"] + keys["A key"].to_i,
-        "B shift" => offsets["B offset"] + keys["B key"].to_i,
-        "C shift" => offsets["C offset"] + keys["C key"].to_i,
-        "D shift" => offsets["D offset"] + keys["D key"].to_i
-      }
+    def shifts(number = random_number, date = todays_date)
+      shifts = keys(number).zip(offsets(date))
+      transformed_shifts = shifts.map do |key_offset_set|
+        key_offset_set[0] + key_offset_set[1]
+      end
     end
 end
