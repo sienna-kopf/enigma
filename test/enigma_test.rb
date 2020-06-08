@@ -1,5 +1,8 @@
 require './test/test_helper'
+require './lib/shifts'
 require './lib/enigma'
+require './lib/decryption'
+require './lib/encryption'
 
 class EnigmaTest < Minitest::Test
   def setup
@@ -11,7 +14,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_a_message_with_key_and_date
-    skip
     expected = {
       encryption: "keder ohulw",
       key: "02715",
@@ -21,7 +23,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_decrypt_a_message_with_key_and_date
-    skip
     expected = {
       decryption: "hello world",
       key: "02715",
@@ -31,32 +32,37 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_a_message_with_only_a_key
-    skip
+    Date.stubs(:today).returns(Date.new(2020, 06, 06))
+
     expected = {
-      encryption: "",
+      encryption: "nib udmcxpu",
       key: "02715",
-      date: ""
+      date: "060620"
     }
     assert_equal expected, @enigma.encrypt("hello world", "02715")
   end
 
   def test_it_can_decrypt_a_message_with_only_a_key
-    skip
+    Date.stubs(:today).returns(Date.new(2020, 06, 06))
+
     encrypted = @enigma.encrypt("hello world", "02715")
     expected = {
-      decryption: "",
+      decryption: "hello world",
       key: "02715",
-      date: ""
+      date: "060620"
     }
     assert_equal expected, @enigma.decrypt(encrypted[:encryption], "02715")
   end
 
   def test_it_can_encrypt_with_just_a_message
-    skip 
+    Date.stubs(:today).returns(Date.new(2020, 06, 06))
+    @enigma.shifts.stubs(:random_number).returns(234)
+
+
     expected = {
-      encryption: "",
-      key: "",
-      date: ""
+      encryption: "lkhssfsvvr ",
+      key: "00234",
+      date: "060620"
     }
     assert_equal expected, @enigma.encrypt("hello world")
   end
