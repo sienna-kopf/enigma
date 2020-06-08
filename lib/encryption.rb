@@ -24,7 +24,7 @@ class Encryption
     encrypted_message = ""
     shifts = [3, 27, 73, 20]
 
-    message.each_char.with_index do |letter, i|
+    message.downcase.each_char.with_index do |letter, i|
       key = shifts[i % shifts.length]
       alphabet_index = alphabet_to_index[letter]
 
@@ -35,5 +35,6 @@ class Encryption
       end
       encrypted_message
     end
+    require "pry"; binding.pry
   end
 end
