@@ -31,11 +31,9 @@ class EncryptionTest < Minitest::Test
   end
 
   def test_it_can_encrypt_a_message
-    @encryption.encrypt_message("hello world")
-    # skip
-    # @shifts.stubs(:random_number).returns(2715)
-    # Date.stubs(:today).returns(Date.new(1995, 8, 04))
-    #
-    # assert_equal "keder ohulw", @encryption.encrypt_message("hello world")
+    @shifts.stubs(:random_number).returns(2715)
+    Date.stubs(:today).returns(Date.new(1995, 8, 04))
+
+    assert_equal "keder ohulw", @encryption.encrypt_message("hello world", @shifts.shifts.values)
   end
 end
