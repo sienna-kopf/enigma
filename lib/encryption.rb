@@ -21,67 +21,19 @@ class Encryption
   end
 
   def encrypt_message(message, keys = @shift.keys , offsets = @shift.offsets)  ## zip method  Hash[collection.zip(collection)] returns hash assignment
-    # hard_code_shifts = {
-    #   "A shift" => 3,
-    #   "B shift" => 27,
-    #   "C shift" => 73,
-    #   "D shift" => 20
-    # }
-    # message = message.split(//).to_a
-    keys = [1, 2, 3]
-
-    index_to_letter = letter_to_index.invert
-    require "pry"; binding.pry
+    encrypted_message = ""
+    shifts = [3, 27, 73, 20]
 
     message.each_char.with_index do |letter, i|
-      require "pry"; binding.pry
-      key = keys
+      key = shifts[i % shifts.length]
+      alphabet_index = alphabet_to_index[letter]
+
+      if (alphabet_index + key) < 27
+        encrypted_message << indexed_alphabet[alphabet_index + key]
+      else
+        encrypted_message << indexed_alphabet[(alphabet_index + key) % 27]
+      end
+      encrypted_message
     end
-
-
-
-
-
-    #
-    # grouped_elements = {
-    #   "1" => [],
-    #   "2" => [],
-    #   "3" => [],
-    #   "4" => []
-    # }
-    # message.reduce(grouped_elements) do |acc, letter|
-    #   if message.rindex(letter) % 4 == 0
-    #     acc["4"] << letter
-    #   elsif message.rindex(letter) % 3 == 0
-    #     acc["3"] << letter
-    #   elsif message.rindex(letter) % 2 == 0
-    #     acc["2"] << letter
-    #   else
-    #     acc["1"] << letter
-    #   end
-    #   acc
-    # end
-    # require "pry"; binding.pry
   end
-
-
-
-
-
-
-
-
-
-
-  #
-  #   encrypted_message = []
-  #   message.each do |letter|
-  #     if @character_set.rindex(letter) + @shift.shifts["A shift"] > 27
-  #       require "pry"; binding.pry
-  #       encrypted_message << @character_set[(@character_set.rindex(letter) + @shift.shifts["A shift"]) % 27]
-  #     else
-  #       encrypted_message << @character_set[@character_set.rindex(letter) + @shift.shifts["A shift"]]
-  #     end
-  #   end
-  # end
 end
