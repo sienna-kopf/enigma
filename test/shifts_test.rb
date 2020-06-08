@@ -36,7 +36,8 @@ class ShiftsTest < Minitest::Test
       ["1", "2"],
       ["2", "3"],
       ["3", "4"],
-      ["4", "5"]]
+      ["4", "5"]
+    ]
 
     assert_equal expected, @shift.key_pairs_array(@shift.random_number)
     assert_equal ["1", "2"], @shift.key_pairs_array(@shift.random_number)[0]
@@ -59,25 +60,25 @@ class ShiftsTest < Minitest::Test
     assert_equal 12, @shift.keys[0]
     assert_equal 4, @shift.keys.count
 
-    expected = [0, 0, 2, 22]
+    expected2 = [0, 0, 2, 22]
     assert_equal expected2, @shift.keys(22)
     assert_equal 22, @shift.keys(22)[3]
   end
 
-  # def test_it_can_return_todays_date_in_appropriate_format
-  #   skip
-  #   Date.stubs(:today).returns(Date.new(2020, 06, 06))
-  #
-  #   assert_equal "060620", @shift.todays_date
-  # end
-  #
-  # def test_it_can_square_given_date
-  #   skip
-  #   Date.stubs(:today).returns(Date.new(2020, 06, 06))
-  #
-  #   assert_equal 3674784400, @shift.square_date
-  # end
-  #
+  def test_it_can_return_todays_date_in_appropriate_format
+    Date.stubs(:today).returns(Date.new(2020, 06, 06))
+
+    assert_equal "060620", @shift.todays_date
+  end
+
+  def test_it_can_square_given_date
+    Date.stubs(:today).returns(Date.new(2020, 06, 06))
+
+    assert_equal 3674784400, @shift.square_date(@shift.todays_date)
+
+    assert_equal 1672401025, @shift.square_date("040895")
+  end
+
   # def test_it_can_create_offsets
   #   skip
   #   Date.stubs(:today).returns(Date.new(2020, 06, 06))
