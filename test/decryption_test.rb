@@ -34,7 +34,7 @@ class DecryptionTest < Minitest::Test
     @shifts.stubs(:random_number).returns(2715)
     Date.stubs(:today).returns(Date.new(1995, 8, 04))
 
-    assert_equal "hello world", @decryption.decrypt_message("keder ohulw", @shifts.shifts.values)
+    assert_equal "hello world", @decryption.decrypt_message("keder ohulw", @shifts.shifts)
     assert_equal "02715", @shifts.padded_random_number
   end
 end
