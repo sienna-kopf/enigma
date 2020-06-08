@@ -55,11 +55,14 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_with_just_a_message
-    skip
+    Date.stubs(:today).returns(Date.new(2020, 06, 06))
+    @enigma.shifts.stubs(:random_number).returns(234)
+
+
     expected = {
-      encryption: "",
-      key: "",
-      date: ""
+      encryption: "lkhssfsvvr ",
+      key: "00234",
+      date: "060620"
     }
     assert_equal expected, @enigma.encrypt("hello world")
   end
