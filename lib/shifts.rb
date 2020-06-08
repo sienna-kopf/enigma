@@ -16,13 +16,13 @@ class Shifts
       sprintf("%05d", number)
     end
 
-    def random_number_array
-      padded_random_number.split(//).to_a
+    def random_number_array(number = random_number)
+      padded_random_number(number).split(//).to_a
     end
 
-    def key_pairs_array
+    def key_pairs_array(number = random_number)
       pairs_array = []
-      random_number_array.each_cons(2) do |set|
+      random_number_array(number).each_cons(2) do |set|
         pairs_array << set
       end
       pairs_array
