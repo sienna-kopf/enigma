@@ -26,8 +26,6 @@ class ShiftsTest < Minitest::Test
 
     assert_equal ["1", "2", "3", "4", "5"], @shift.random_number_array(@shift.padded_random_number(@shift.random_number))
     assert_equal 5, @shift.random_number_array(@shift.padded_random_number(@shift.random_number)).count
-    ## weird prob here... fix later!
-    # assert_equal ["0", "0", "2", "2", "2"], @shift.random_number_array(@shift.padded_random_number(222))
   end
 
   def test_it_can_create_key_pairs_array
