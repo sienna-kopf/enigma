@@ -90,7 +90,6 @@ class ShiftsTest < Minitest::Test
   end
 
   def test_it_can_assign_shifts
-    skip
     Date.stubs(:today).returns(Date.new(2020, 06, 06))
     @shift.stubs(:random_number).returns(234)
 
@@ -100,11 +99,11 @@ class ShiftsTest < Minitest::Test
     assert_equal 4, @shift.shifts.count
 
     expected2 = [3, 27, 73, 20]
-    assert_equal expected2, @shift.shifts(2715, "040895")
-    assert_equal 73, @shift.shifts(2715, "040895")[2]
+    assert_equal expected2, @shift.shifts("02715", "040895")
+    assert_equal 73, @shift.shifts("02715", "040895")[2]
 
     expected3 = [6, 31, 71, 15]
-    assert_equal expected3, @shift.shifts(2715)
-    assert_equal 71, @shift.shifts(2715)[2]
+    assert_equal expected3, @shift.shifts("02715")
+    assert_equal 71, @shift.shifts("02715")[2]
   end
 end
