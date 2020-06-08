@@ -32,7 +32,6 @@ class Encryption
       else
         encrypted_message << indexed_alphabet[(alphabet_index + key) % 27]
       end
-      encrypted_message
     end
     encrypted_message
   end
