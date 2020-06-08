@@ -16,16 +16,20 @@ class Encryption
     end
   end
 
+  def alphabet_to_index
+    indexed_alphabet.invert
+  end
+
   def encrypt_message(message, keys = @shift.keys , offsets = @shift.offsets)  ## zip method  Hash[collection.zip(collection)] returns hash assignment
-    hard_code_shifts = {
-      "A shift" => 3,
-      "B shift" => 27,
-      "C shift" => 73,
-      "D shift" => 20
-    }
+    # hard_code_shifts = {
+    #   "A shift" => 3,
+    #   "B shift" => 27,
+    #   "C shift" => 73,
+    #   "D shift" => 20
+    # }
     # message = message.split(//).to_a
     keys = [1, 2, 3]
-    
+
     index_to_letter = letter_to_index.invert
     require "pry"; binding.pry
 
