@@ -16,7 +16,7 @@ class Shifts
 
     def key_pairs_array(number = random_number)
       pairs_array = []
-      random_number_array(number).each_cons(2) do |set|
+      random_number_array(number.to_i).each_cons(2) do |set|
         pairs_array << set
       end
       pairs_array
