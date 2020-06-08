@@ -21,28 +21,29 @@ class ShiftsTest < Minitest::Test
     assert_equal "01234", @shift.padded_random_number(1234)
   end
 
-  # def test_it_can_create_an_array_out_of_padded_random_number
-  #   skip
-  #   @shift.stubs(:random_number).returns(12345)
-  #
-  #   assert_equal ["1", "2", "3", "4", "5"], @shift.five_digit_number_array(@shift.padded_random_number)
-  #   assert_equal 5, @shift.five_digit_number_array(@shift.padded_random_number).count
-  # end
-  #
-  # def test_it_can_create_key_pairs_array
-  #   skip
-  #   @shift.stubs(:random_number).returns(12345)
-  #   expected = [
-  #     ["1", "2"],
-  #     ["2", "3"],
-  #     ["3", "4"],
-  #     ["4", "5"]]
-  #
-  #   assert_equal expected, @shift.key_pairs_array
-  #   assert_equal ["1", "2"], @shift.key_pairs_array[0]
-  #   assert_equal 4, @shift.key_pairs_array.count
-  # end
-  #
+  def test_it_can_create_an_array_out_of_padded_random_number
+    skip
+    @shift.stubs(:random_number).returns(12345)
+
+    assert_equal ["1", "2", "3", "4", "5"], @shift.random_number_array(@shift.padded_random_number(@shift.random_number))
+    assert_equal 5, @shift.random_number_array(@shift.padded_random_number(@shift.random_number)).count
+    require "pry"; binding.pry
+    assert_equal ["0", "0", "0", "2", "2"], @shift.random_number_array(@shift.padded_random_number(22))
+  end
+
+  def test_it_can_create_key_pairs_array
+    @shift.stubs(:random_number).returns(12345)
+    expected = [
+      ["1", "2"],
+      ["2", "3"],
+      ["3", "4"],
+      ["4", "5"]]
+
+    assert_equal expected, @shift.key_pairs_array(@shift.random_number)
+    assert_equal ["1", "2"], @shift.key_pairs_array(@shift.random_number)[0]
+    assert_equal 4, @shift.key_pairs_array(@shift.random_number).count
+  end
+
   # def test_it_can_create_keys
   #   skip
   #   @shift.stubs(:random_number).returns(12345)
