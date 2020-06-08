@@ -1,5 +1,8 @@
 require './test/test_helper'
+require './lib/shifts'
 require './lib/enigma'
+require './lib/decryption'
+require './lib/encryption'
 
 class EnigmaTest < Minitest::Test
   def setup
@@ -11,7 +14,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_a_message_with_key_and_date
-    skip
     expected = {
       encryption: "keder ohulw",
       key: "02715",
@@ -52,7 +54,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_with_just_a_message
-    skip 
+    skip
     expected = {
       encryption: "",
       key: "",
