@@ -79,19 +79,17 @@ class ShiftsTest < Minitest::Test
     assert_equal 1672401025, @shift.square_date("040895")
   end
 
-  # def test_it_can_create_offsets
-  #   skip
-  #   Date.stubs(:today).returns(Date.new(2020, 06, 06))
-  #   expected = {
-  #     "A offset" => 4,
-  #     "B offset" => 4,
-  #     "C offset" => 0,
-  #     "D offset" => 0
-  #     }
-  #   assert_equal expected, @shift.offsets
-  #   assert_equal 4, @shift.offsets["A offset"]
-  #   assert_equal 4, @shift.offsets.count
-  # end
+  def test_it_can_create_offsets
+    Date.stubs(:today).returns(Date.new(2020, 06, 06))
+    expected = [4, 4, 0, 0]
+    assert_equal expected, @shift.offsets
+    assert_equal 4, @shift.offsets[0]
+    assert_equal 4, @shift.offsets.count
+
+    expected2 = [1, 0, 2, 5]
+    assert_equal expected, @shift.offsets("040895")
+    assert_equal 5, @shift.offsets("040895")[3]
+  end
   #
   # def test_it_can_assign_shifts
   #   skip
