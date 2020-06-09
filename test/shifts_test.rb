@@ -18,20 +18,20 @@ class ShiftsTest < Minitest::Test
     assert_equal 21923, @shift.random_number
   end
 
-  def test_it_can_pad_random_number_with_leading_zeros
+  def test_it_can_pad_given_number_with_leading_zeros
     @shift.stubs(:random_number).returns(25)
-    assert_equal "00025", @shift.padded_random_number(@shift.random_number)
-    assert_equal true, @shift.padded_random_number(@shift.random_number).length == 5
-    
-    assert_equal "01234", @shift.padded_random_number(1234)
-    assert_equal true, @shift.padded_random_number(1234).length == 5
+    assert_equal "00025", @shift.padded_number(@shift.random_number)
+    assert_equal true, @shift.padded_number(@shift.random_number).length == 5
+
+    assert_equal "01234", @shift.padded_number(1234)
+    assert_equal true, @shift.padded_number(1234).length == 5
   end
 
-  def test_it_can_create_an_array_out_of_padded_random_number
+  def test_it_can_create_an_array_out_of_padded_number
     @shift.stubs(:random_number).returns(12345)
 
-    assert_equal ["1", "2", "3", "4", "5"], @shift.random_number_array(@shift.padded_random_number(@shift.random_number))
-    assert_equal 5, @shift.random_number_array(@shift.padded_random_number(@shift.random_number)).count
+    assert_equal ["1", "2", "3", "4", "5"], @shift.random_number_array(@shift.padded_number(@shift.random_number))
+    assert_equal 5, @shift.random_number_array(@shift.padded_number(@shift.random_number)).count
   end
 
   def test_it_can_create_key_pairs_array
