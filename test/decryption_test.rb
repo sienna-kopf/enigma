@@ -51,4 +51,13 @@ class DecryptionTest < Minitest::Test
     assert_equal "02715", @shifts.padded_number
     assert_equal [3, 27, 73, 20], @shifts.shifts
   end
+
+  def test_it_can_decrypt_a_message_of_a_different_case
+    @shifts.stubs(:random_number).returns(2715)
+    Date.stubs(:today).returns(Date.new(1995, 8, 04))
+
+    assert_equal "hello world", @decryption.crypt_message("KEDER OHULW", @shifts.shifts)
+    assert_equal "02715", @shifts.padded_number
+    assert_equal [3, 27, 73, 20], @shifts.shifts
+  end
 end
