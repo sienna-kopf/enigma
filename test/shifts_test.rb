@@ -12,7 +12,7 @@ class ShiftsTest < Minitest::Test
 
   def test_it_can_generate_a_random_number
     assert_equal true, @shift.random_number.to_s.length <= 5
-    assert_equal true, @shift.random_number.class == Integer 
+    assert_equal true, @shift.random_number.class == Integer
 
     @shift.stubs(:random_number).returns(21923)
     assert_equal 21923, @shift.random_number
@@ -21,7 +21,10 @@ class ShiftsTest < Minitest::Test
   def test_it_can_pad_random_number_with_leading_zeros
     @shift.stubs(:random_number).returns(25)
     assert_equal "00025", @shift.padded_random_number(@shift.random_number)
+    assert_equal true, @shift.padded_random_number(@shift.random_number).length == 5
+    
     assert_equal "01234", @shift.padded_random_number(1234)
+    assert_equal true, @shift.padded_random_number(1234).length == 5
   end
 
   def test_it_can_create_an_array_out_of_padded_random_number
