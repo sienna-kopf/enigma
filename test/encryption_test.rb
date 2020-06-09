@@ -40,6 +40,7 @@ class EncryptionTest < Minitest::Test
 
     assert_equal "keder ohulw", @encryption.crypt_message("hello world", @shifts.shifts)
     assert_equal "02715", @shifts.padded_number
+    assert_equal [3, 27, 73, 20], @shifts.shifts
   end
 
   def test_it_can_encrypt_a_message_that_contains_characters_outside_of_character_set
