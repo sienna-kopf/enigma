@@ -6,12 +6,12 @@ class Shifts
       rand(99999)
     end
 
-    def padded_random_number(number = random_number)
+    def padded_number(number = random_number)
       sprintf("%05d", number)
     end
 
     def random_number_array(number = random_number)
-      padded_random_number(number).split(//).to_a
+      padded_number(number).split(//).to_a
     end
 
     def key_pairs_array(number = random_number)
