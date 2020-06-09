@@ -59,13 +59,12 @@ class EnigmaTest < Minitest::Test
     }
     assert_equal expected, @enigma.decrypt(encrypted[:encryption], "02715")
     assert_equal 5, @enigma.decrypt("hello world", "02715", "040895")[:key].length
-    assert_equal 6, @enigma.decrypt("hello world", "02715", "040895")[:date].length 
+    assert_equal 6, @enigma.decrypt("hello world", "02715", "040895")[:date].length
   end
 
   def test_it_can_encrypt_with_just_a_message
     Date.stubs(:today).returns(Date.new(2020, 06, 06))
     @enigma.shifts.stubs(:random_number).returns(234)
-
 
     expected = {
       encryption: "lkhssfsvvr ",
@@ -73,5 +72,7 @@ class EnigmaTest < Minitest::Test
       date: "060620"
     }
     assert_equal expected, @enigma.encrypt("hello world")
+    assert_equal 5, @enigma.decrypt("hello world", "02715", "040895")[:key].length
+    assert_equal 6, @enigma.decrypt("hello world", "02715", "040895")[:date].length
   end
 end
