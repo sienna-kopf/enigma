@@ -21,7 +21,7 @@ class EnigmaTest < Minitest::Test
     }
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
     assert_equal 5, @enigma.encrypt("hello world", "02715", "040895")[:key].length
-    assert_equal 6, @enigma.encrypt("hello world", "02715", "040895")[:date].length 
+    assert_equal 6, @enigma.encrypt("hello world", "02715", "040895")[:date].length
   end
 
   def test_it_can_decrypt_a_message_with_key_and_date
@@ -31,6 +31,8 @@ class EnigmaTest < Minitest::Test
       date: "040895"
     }
     assert_equal expected, @enigma.decrypt("keder ohulw", "02715", "040895")
+    assert_equal 5, @enigma.decrypt("hello world", "02715", "040895")[:key].length
+    assert_equal 6, @enigma.decrypt("hello world", "02715", "040895")[:date].length 
   end
 
   def test_it_can_encrypt_a_message_with_only_a_key
