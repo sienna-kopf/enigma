@@ -60,4 +60,13 @@ class EncryptionTest < Minitest::Test
     assert_equal "02715", @shifts.padded_number
     assert_equal [3, 27, 73, 20], @shifts.shifts
   end
+
+  def test_it_can_encrypt_a_message_concerning_casing_and_characters
+    @shifts.stubs(:random_number).returns(2715)
+    Date.stubs(:today).returns(Date.new(1995, 8, 04))
+
+    assert_equal "*~*~keder ohulw~*~*", @encryption.crypt_message("*~*~HellO WorlD~*~*", @shifts.shifts)
+    assert_equal "02715", @shifts.padded_number
+    assert_equal [3, 27, 73, 20], @shifts.shifts
+  end
 end
