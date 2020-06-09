@@ -22,7 +22,7 @@ class DecryptionTest < Minitest::Test
 
   def test_it_can_create_an_index_to_letter_hash_for_character_set
     expected = {0=>" ", 1=>"z", 2=>"y", 3=>"x", 4=>"w", 5=>"v", 6=>"u", 7=>"t", 8=>"s", 9=>"r", 10=>"q", 11=>"p", 12=>"o", 13=>"n", 14=>"m", 15=>"l", 16=>"k", 17=>"j", 18=>"i", 19=>"h", 20=>"g", 21=>"f", 22=>"e", 23=>"d", 24=>"c", 25=>"b", 26=>"a"}
-    assert_equal expected, @decryption.indexed_alphabet
+    assert_equal expected, @decryption.index_to_alphabet
   end
 
   def test_it_can_create_a_letter_to_index_hash_for_character_set
@@ -34,7 +34,7 @@ class DecryptionTest < Minitest::Test
     @shifts.stubs(:random_number).returns(2715)
     Date.stubs(:today).returns(Date.new(1995, 8, 04))
 
-    assert_equal "hello world", @decryption.decrypt_message("keder ohulw", @shifts.shifts)
+    assert_equal "hello world", @decryption.crypt_message("keder ohulw", @shifts.shifts)
     assert_equal "02715", @shifts.padded_random_number
   end
 end

@@ -13,7 +13,7 @@ class Enigma
 
   def encrypt(message, key = @shifts.padded_random_number, date = @shifts.todays_date)
     {
-      :encryption => @encryption.encrypt_message(message, @shifts.shifts(key, date)),
+      :encryption => @encryption.crypt_message(message, @shifts.shifts(key, date)),
       :key => key,
       :date => date
     }
@@ -21,7 +21,7 @@ class Enigma
 
   def decrypt(message, key = @shifts.padded_random_number, date = @shifts.todays_date)
     {
-      :decryption => @decryption.decrypt_message(message, @shifts.shifts(key, date)),
+      :decryption => @decryption.crypt_message(message, @shifts.shifts(key, date)),
       :key => key,
       :date => date
     }
