@@ -57,5 +57,7 @@ class EncryptionTest < Minitest::Test
     Date.stubs(:today).returns(Date.new(1995, 8, 04))
 
     assert_equal "keder ohulw", @encryption.crypt_message("HELLO WORLD", @shifts.shifts)
+    assert_equal "02715", @shifts.padded_number
+    assert_equal [3, 27, 73, 20], @shifts.shifts
   end
 end
