@@ -32,7 +32,6 @@ class DecryptionTest < Minitest::Test
     assert_equal expected, @decryption.alphabet_to_index
     assert_equal 27, @decryption.alphabet_to_index.count
     assert_equal 0, @decryption.alphabet_to_index[' ']
-
   end
 
   def test_it_can_decrypt_a_message
@@ -41,5 +40,6 @@ class DecryptionTest < Minitest::Test
 
     assert_equal "hello world", @decryption.crypt_message("keder ohulw", @shifts.shifts)
     assert_equal "02715", @shifts.padded_number
+    assert_equal [3, 27, 73, 20], @shifts.shifts
   end
 end
