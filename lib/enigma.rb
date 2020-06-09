@@ -11,7 +11,7 @@ class Enigma
     @shifts = Shifts.new
   end
 
-  def encrypt(message, key = @shifts.padded_random_number, date = @shifts.todays_date)
+  def encrypt(message, key = @shifts.padded_number, date = @shifts.todays_date)
     {
       :encryption => @encryption.crypt_message(message, @shifts.shifts(key, date)),
       :key => key,
@@ -19,7 +19,7 @@ class Enigma
     }
   end
 
-  def decrypt(message, key = @shifts.padded_random_number, date = @shifts.todays_date)
+  def decrypt(message, key = @shifts.padded_number, date = @shifts.todays_date)
     {
       :decryption => @decryption.crypt_message(message, @shifts.shifts(key, date)),
       :key => key,
