@@ -5,7 +5,7 @@ Pure Ruby project for encrypting and decrypting messages based on a substitution
 
 ### Setup: 
 - clone repo locally
-  - `git clone `
+  - `git clone git@github.com:sienna-kopf/enigma.git`
 - `cd enigma`
 - `bundle install` 
 
