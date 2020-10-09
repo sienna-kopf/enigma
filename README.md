@@ -1,16 +1,28 @@
 # Enigma
 
-Solo-project!!!
+### Description:
+Pure Ruby project for encrypting and decrypting messages based on a substitution cipher. Fully tested using Minitest and run through Commmand Line Interface commands. 
 
-Overall, I am very happy with my performance on this project. I managed to reach my goal of completing all the iteration 3 functionality and believe that I went above and beyond in multiple other areas. I am most proud of the way in which I went about completing this project. I stand by the way in which I organized my project as I think it makes it very clean and dry! I practiced really good TDD, writing robust tests and only enough code to make them pass. I also managed to use a very helpful module which was cool, and learned alot about command line arguments.
+### Setup: 
+- clone repo locally
+  - `git clone `
+- `cd enigma`
+- `bundle install` 
 
-LATE:
+### Command Line Interface (CLI) usage: 
+``` $ ruby ./lib/encrypt.rb message.txt encrypted.txt
+Created 'encrypted.txt' with the key 82648 and date 240818
+$ ruby ./lib/decrypt.rb encrypted.txt decrypted.txt 82648 240818
+Created 'decrypted.txt' with the key 82648 and date 240818
+```
 
-Based on the rubric:
-3 in functionality
-4 in OOP
-3(+) in Conventions and Mechanics
-4 in TDD
-4 in Version Control
+### Running tests:
+`rake test` to run full test suite or `ruby test/<test_file_name.rb>` for individual tests
 
-= 3.6 average score!
+### Tools: 
+- Ruby
+- MiniTest
+- SimpleCov
+
+### Authors: 
+[Sienna Kopf](https://github.com/sienna-kopf)
