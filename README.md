@@ -1,7 +1,7 @@
 # Enigma
 
 ### Description:
-Pure Ruby project for encrypting and decrypting messages based on a substitution cipher. Fully tested using Minitest and run through Commmand Line Interface commands. 
+Pure Ruby project for encrypting and decrypting messages based on a rotary cipher off of a random 5-digit key value and 6-digit calendar date. Key value is a randomly generated number from (0..99999). Date is set to Today's Date as default but can also be inputted. Fully tested using Minitest and run through Commmand Line Interface commands. 
 
 ### Setup: 
 - clone repo locally
